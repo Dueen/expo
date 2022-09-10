@@ -408,10 +408,10 @@ RCT_EXPORT_METHOD(callMethod:(NSString *)moduleName methodNameOrKey:(id)methodNa
   }
 
 #ifdef RN_FABRIC_ENABLED
-  if ([className hasPrefix:@"ViewManagerAdapter_"]) {
-    Class viewClass = [ExpoFabricView makeClassForAppContext:_appContext className:className];
-    [[RCTComponentViewFactory currentComponentViewFactory] registerComponentViewClass:viewClass];
-  }
+//  if ([className hasPrefix:@"ViewManagerAdapter_"]) {
+//    Class viewClass = [ExpoFabricView makeClassForAppContext:_appContext className:className];
+//    [[RCTComponentViewFactory currentComponentViewFactory] registerComponentViewClass:viewClass];
+//  }
 #endif
 }
 

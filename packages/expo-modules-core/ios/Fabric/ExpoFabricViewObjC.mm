@@ -7,6 +7,10 @@
 #import <ExpoModulesCore/ExpoViewComponentDescriptor.h>
 #import <ExpoModulesCore/Swift.h>
 
+#ifdef __cplusplus
+#import <string.h>
+#endif
+
 using namespace expo;
 
 namespace {
@@ -90,7 +94,7 @@ static NSString *normalizeEventName(NSString *eventName)
   auto componentName = facebook::react::ComponentName{flavor->c_str()};
   return facebook::react::ComponentDescriptorProvider {
     reinterpret_cast<facebook::react::ComponentHandle>(componentName),
-    componentName,
+    facebook::react::ComponentName{flavor->c_str()},
     flavor,
     &facebook::react::concreteComponentDescriptorConstructor<expo::ExpoViewComponentDescriptor>
   };

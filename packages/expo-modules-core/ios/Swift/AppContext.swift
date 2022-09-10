@@ -82,7 +82,12 @@ public final class AppContext: NSObject {
 
   public func findView<ViewType>(withTag viewTag: Int, ofType type: ViewType.Type) -> ViewType? {
     let view: UIView? = reactBridge?.uiManager.view(forReactTag: NSNumber(value: viewTag))
-    return view as? ViewType
+
+    if let view = view as? ExpoFabricViewObjC {
+      return view.contentView as? ViewType
+    } else {
+      return view as? ViewType
+    }
   }
 
   // MARK: - Legacy modules
